@@ -1,0 +1,337 @@
+\documentclass[a4paper, 12pt, epic, carom]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[noconfigs, english]{babel}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}														% set font, use XeLaTeX
+\renewcommand{\baselinestretch}{1.5} 										% line spacing
+\usepackage[numbers, round, sort&compress]{natbib} 			% vancouver cite style with, in-text refs as: (1-3)
+%\usepackage{cite}
+\usepackage[acronym, nonumberlist]{glossaries}					% glossaries, without numbering 
+\usepackage{datetime}
+\usepackage[tmargin=2.54cm, bmargin=2.54cm, lmargin=2.0cm, rmargin=2.0cm]{geometry}	% set margins
+\usepackage[font=footnotesize]{caption}									% set global caption font-size
+\captionsetup{figurewithin=section,tablewithin=section}
+\usepackage{soul}																				% highlight text 
+\usepackage{tocloft}																		% TOC
+\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}} 	% add dots, for parts in TOC
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} 	% add dots, for chapters in TOC
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} 	% add dots, for sections in TOC
+
+%% tabular
+% allows for temporary adjustment of side margins
+\usepackage{changepage}
+\usepackage{tabularx} % /adjustwidth
+\usepackage{booktabs}	% just makes the table prettier (see \toprule, \bottomrule, etc. commands below)
+
+% define a new \hline command
+\makeatletter
+\def\hlinewd#1{%
+\noalign{\ifnum0=`}\fi\hrule \@height #1 %
+\futurelet\reserved@a\@xhline}
+\makeatother
+
+% highlight text 
+% \usepackage{multirow}
+\usepackage[table]{xcolor}
+\definecolor{defTableColor}{rgb}{0.8, 0.8, 0.8}
+\usepackage{ulem}
+
+\usepackage{graphicx}
+%\usepackage{xymtex}
+%\usepackage[T2A,OT1]{fontenc}
+%\usepackage[ot2enc]{inputenc}
+%\usepackage[all]{xy}
+\usepackage{lastpage}
+\usepackage[pdftex]{hyperref}
+\hypersetup{colorlinks,     	%
+						citecolor=black,	%
+						filecolor=black,	%
+						linkcolor=black,  %
+						urlcolor=black,		%
+						pdftex}
+\usepackage{fancyhdr}					% use fancy headers (http://texdoc.net/texmf-dist/doc/latex/fancyhdr/fancyhdr.pdf)
+\pagestyle{fancy}
+
+
+\pagenumbering{roman} 				% set roman page numbering before the main sections (changed to arabic later)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLE: set up
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{\textsc{course} \\ $ $\\
+title}
+\author{Name: xxx \\
+Stu. no.: xxx \\
+MSc xxx
+\\ $ $\\
+\\ $ $\\
+\\ $ $\\
+\textbf{Word count: xxx}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GLOSSARY_IMPORT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\makeglossaries
+%\input{main_glossary}
+
+%\glsaddall
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END PREAMBLE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HEADERS: before main sections
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fancyfoot{}
+\fancyfoot[LO]{}
+\fancyfoot[CO]{}
+\fancyfoot[CE]{}
+\fancyfoot[RO]{\thepage}
+
+
+\fancyhead{}
+\renewcommand{\headrulewidth}{1pt} 
+\renewcommand{\footrulewidth}{1pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\maketitle
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ABSTRACT
+% 
+% General structure:
+% - Intro summary 
+% - Conclusions summary
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Abstract}
+...
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TOC
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newpage
+\tableofcontents
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GLOSSARY_PRINT: run the Perl script makeglossaries
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\printglossaries
+
+%... added in text as: \gls{text}
+
+%\newpage
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN SECTION(s)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+% change headers, footers and numbering:
+
+\fancyfoot[RO]{\footnotesize{\sffamily{1--\pageref{LastPage} ~\textbar  \hspace{2pt}\thepage}}}
+\fancyfoot[LE]{\footnotesize{\sffamily{\thepage~\textbar\hspace{3.45cm} 1--\pageref{LastPage}}}}
+
+\fancyhead[RO]{\rightmark} 	% adds 1. sectionname
+
+
+
+\clearpage
+\pagenumbering{arabic}			% TOC with arabic numbering
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INTRODUCTION
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\section{Introduction}
+...
+
+
+
+\begin{figure}[!ht]
+ \centering
+\begin{minipage}[c]{0.90\textwidth}
+	\centering
+	\includegraphics[width=\textwidth]{Fig1.png}
+\end{minipage}
+	\begin{minipage}[c]{0.99\textwidth}
+ \centering
+	\caption{caption}
+	\label{fig:glu}
+\end{minipage}
+\end{figure}
+
+
+\newpage
+\begin{table*}[h]
+\rowcolors{1, 3}{gray!15}{gray!15}
+\centering
+	\begin{tabular}{|l|c|c|c|}
+	 \rowcolor{defTableColor}
+		\hline
+		\textbf{Sample}   & \textbf{Sample} & \textbf{Sample} 								& \textbf{Sample}     								\\
+		\textbf{$ $}   		& \textbf{$ $} 		& \textbf{Sample (ng mL$^{-1}$)} & \textbf{cSample (ng mL$^{-1}$)}     \\
+		\hline
+    {A}      					& 	{3641.6}   		& 	{out}       									& 		{0.00}           								\\
+    {B}      					& 	{1205.0}   		& 	{4.463}     									& 		{5.00}            							\\
+		\hline
+	\end{tabular}
+	\caption{caption} 
+	\label{tab:tab1}%
+\end{table*}
+
+
+
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AIMS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+\section{Aims}
+...
+\begin{itemize}
+	\item ...
+	\item ...
+	\item ...
+\end{itemize}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MATERIALS AND METHODS
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+\section{Materials and methods}
+...
+
+
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RESULTS
+%
+% General structure:
+% - Why?
+% - What?
+% - How?
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+\newpage
+
+\section{Results}
+...
+
+
+
+
+
+
+
+
+\newpage
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DISCUSSION
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+\section{Discussion}
+In summary, ...
+
+...
+
+In conclusion, ...
+
+\newpage
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONCLUSION
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+\section{Conclusion}
+In conclusion, ...
+ 
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% REFERENCES
+%
+% Vancouver style:
+% https://www.nlm.nih.gov/bsd/uniform_requirements.html
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{flushleft}
+{\newpage}
+%\bibliographystyle{vancouver}
+%\bibliography{xampl}
+\bibliographystyle{unsrtnat} 
+\begin{thebibliography}{99}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INTRODUCTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+
+
+
+
+
+
+\end{thebibliography}
+\end{flushleft}
+
+\end{document}
